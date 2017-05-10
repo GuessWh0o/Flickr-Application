@@ -3,6 +3,7 @@ package com.maks.flickrapplication;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -16,6 +17,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        GetRawData getRawData = new GetRawData(this);
+        getRawData.execute("https://api.flickr.com/services/feeds/photos_public.gne?tags=android&tagmode=any&format=json&nojsoncallback=1");
     }
 
     @Override
@@ -38,5 +42,14 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+    public void onDownloadComplete(String data, DownloadStatus status){
+        if(status == DownloadStatus.OK){
+            Log.d(TAG, "onDownloadComplete: data is "+ data);
+        } else{
+            Log.d(TAG, "onDownloadComplete: failed with status " + status);
+        }
     }
 }
