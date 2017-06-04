@@ -12,7 +12,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
- * Created by maks on 5/1/17.
+ * Created by GuessWh0o on 5/1/17.
  */
 
 enum DownloadStatus {
@@ -25,16 +25,31 @@ public class GetRawData extends AsyncTask<String, Void, String> {
 
     private DownloadStatus mDownloadStatus;
 
-    private final MainActivity mCallback;
+    private final IOnDownloadComplete mCallback;
 
-    public GetRawData(MainActivity callback) {
-        mCallback = callback;
+    interface IOnDownloadComplete {
+        void onDownloadComplete(String data, DownloadStatus status);
+    }
+
+    public GetRawData(IOnDownloadComplete callback) {
         this.mDownloadStatus = DownloadStatus.IDLE;
+        mCallback = callback;
+    }
+
+
+    void runInSameThread(String s) {
+        Log.d(TAG, "runInSameThread: STARTS");
+
+       // onPostExecute(doInBackground(s));
+        if(mCallback != null) {
+            mCallback.onDownloadComplete(doInBackground(s), mDownloadStatus);
+        }
+
+        Log.d(TAG, "runInSameThread: ENDS");
     }
 
     @Override
     protected void onPostExecute(String s) {
-        Log.d(TAG, "onPostExecute: parameter = " + s);
         if (mCallback != null) {
             mCallback.onDownloadComplete(s, mDownloadStatus);
         } else {
@@ -100,4 +115,5 @@ public class GetRawData extends AsyncTask<String, Void, String> {
 
         return null;
     }
+
 }
