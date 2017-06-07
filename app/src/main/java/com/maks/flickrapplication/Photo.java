@@ -1,11 +1,14 @@
 package com.maks.flickrapplication;
 
+import java.io.Serializable;
+
 /**
  * Created by GuessWh0o on 5/29/17.
  */
 
-class Photo {
+class Photo implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     private String mTitle;
     private String mAuthor;
     private String mAuthorId;

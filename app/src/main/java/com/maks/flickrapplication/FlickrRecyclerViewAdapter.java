@@ -40,10 +40,7 @@ class FlickrRecyclerViewAdapter extends RecyclerView.Adapter<FlickrRecyclerViewA
         //Called by layoutManager when it wants new data in an existing row
         Photo photoItem = mPhotoList.get(position);
         Log.d(TAG, "onBindViewHolder: " + photoItem.getTitle() + " ---> " + position);
-        Picasso.with(mContext).load(photoItem.getImage())
-                .error(R.drawable.placeholder)  //TODO: Change to broken image
-                .placeholder(R.drawable.placeholder)
-                .into(holder.thumbnail);
+
 
         holder.title.setText(photoItem.getTitle());
     }

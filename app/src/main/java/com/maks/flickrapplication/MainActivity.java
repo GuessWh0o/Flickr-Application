@@ -1,10 +1,9 @@
 package com.maks.flickrapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,7 +13,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements GetFlickrJsonData.IOnDataAvailable,
+public class MainActivity extends BaseActivity implements GetFlickrJsonData.IOnDataAvailable,
                                 RecyclerItemClickListener.IOnRecyclerClickListener {
 
     private FlickrRecyclerViewAdapter mFlickrRecyclerViewAdapter;
@@ -35,13 +34,12 @@ public class MainActivity extends AppCompatActivity implements GetFlickrJsonData
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        activateToolbar(false);
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
         recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, recyclerView, this));
+
         mFlickrRecyclerViewAdapter = new FlickrRecyclerViewAdapter(this, new ArrayList<Photo>());
         recyclerView.setAdapter(mFlickrRecyclerViewAdapter);
         //GetRawData getRawData = new GetRawData(this);
@@ -89,6 +87,10 @@ public class MainActivity extends AppCompatActivity implements GetFlickrJsonData
     @Override
     public void OnItemLongClick(View view, int position) {
         Log.d(TAG, "OnItemLongClick: STARTS");
-        Toast.makeText(MainActivity.this, "Long Tap at position " + position, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(MainActivity.this, "Long Tap at position " + position, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, PhotoDetailActivity.class);
+        intent.putExtra(PHOTO_TRANSFER, mFlickrRecyclerViewAdapter.getPhoto(position));
+        startActivity(intent);
     }
+
 }
