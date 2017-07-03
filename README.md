@@ -3,7 +3,7 @@
 
 ***
 
-#### Found "bus"
+### Found "bus"
 
 <img src="app/src/main/res/screenshots/cars_found.png">
 
@@ -11,13 +11,13 @@
 
 ***
 
-#### Searching for "cats"
+### Searching for "cats"
 
 <img src="app/src/main/res/screenshots/cats_search.png">
 
 ***
 
-####  Found "cats"
+###  Found "cats"
 
 <img src="app/src/main/res/screenshots/cats_found.png">
 
