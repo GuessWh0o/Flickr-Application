@@ -13,6 +13,11 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by GuessWh0o on 05.01.2017.
+ * Email: developerint97@gmail.com
+ */
+
 public class MainActivity extends BaseActivity implements GetFlickrJsonData.IOnDataAvailable,
                                 RecyclerItemClickListener.IOnRecyclerClickListener {
 
