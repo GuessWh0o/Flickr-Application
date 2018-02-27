@@ -6,8 +6,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
 /**
- * Created by Maksym on 6/5/17.
- * Company: Activaire
+ * Created by GuessWh0o on 06.05.2017.
+ * Email: developerint97@gmail.com
  */
 
 public class BaseActivity extends AppCompatActivity {
