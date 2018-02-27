@@ -1,9 +1,10 @@
 package com.maks.flickrapplication;
 
 /**
- * Created by GuessWh0o on 5/10/17.
+ * Created by GuessWh0o on 05.10.2017.
+ * Email: developerint97@gmail.com
  */
 
-public interface IOnDownloadComplete {
+interface IOnDownloadComplete {
     void onDownloadComplete(String data, DownloadStatus status);
 }
