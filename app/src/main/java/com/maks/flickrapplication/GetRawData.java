@@ -12,7 +12,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
- * Created by GuessWh0o on 5/1/17.
+ * Created by GuessWh0o on 06.01.2017.
+ * Email: developerint97@gmail.com
  */
 
 enum DownloadStatus {
