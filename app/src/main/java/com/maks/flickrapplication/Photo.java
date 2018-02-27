@@ -3,7 +3,8 @@ package com.maks.flickrapplication;
 import java.io.Serializable;
 
 /**
- * Created by GuessWh0o on 5/29/17.
+ * Created by GuessWh0o on 05.29.2017.
+ * Email: developerint97@gmail.com
  */
 
 class Photo implements Serializable {
