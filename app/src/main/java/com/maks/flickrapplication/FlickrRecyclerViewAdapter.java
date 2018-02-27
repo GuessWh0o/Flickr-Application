@@ -14,7 +14,8 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 /**
- * Created by Maksym on 6/3/17.
+ * Created by GuessWh0o on 06.03.2017.
+ * Email: developerint97@gmail.com
  */
 
 class FlickrRecyclerViewAdapter extends RecyclerView.Adapter<FlickrRecyclerViewAdapter.FlickrImageViewHolder> {
